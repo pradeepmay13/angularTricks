@@ -1,0 +1,42 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Custom Form</h4>
+                    <p class="category">custom form for all fields with services</p>
+					https://github.com/jakblak/ng4_CRUD/blob/master/app/products/product.component.ts
+					https://github.com/bradtraversy/slimapp/blob/master/public/index.php
+                </div>
+                <div class="card-content">
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">Country</label>
+                                    <select class="form-control" [(ngModel)]="country" (change)="countryChange(country)">
+                                    	<option *ngFor="let countryData of countries" [ngValue]="countryData.id">{{countryData.name}}</option>
+                                    </select>                                    
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group form-black label-floating is-empty">
+                                    <label class="control-label">State</label>
+                                    <select class="form-control"  [(ngModel)]="state">
+                                    <option *ngFor="let stateData of states" value="{{stateData.id}}">{{stateData.name}}</option>
+                                    </select>                                    
+                                </div>
+                                
+                            </div>
+                        </div>  
+                        <button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                        <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>       
+    </div>
+</div>
+</div>
+

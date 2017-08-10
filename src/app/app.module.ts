@@ -13,8 +13,6 @@ import { ToastModule } from 'ng2-toastr/ng2-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { routingComponent } from './app-routing.module';
 import { DataTableModule } from 'angular-4-data-table';
-import { DatatableComponent } from './datatable/datatable.component';
-import { LoginComponent } from './login/login.component';
 //import { Datatable2Component } from './datatable2/datatable2.component';
 //import { ToastOptions } from 'ng2-toastr';
 
@@ -22,7 +20,6 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     routingComponent,
-    LoginComponent,
     //DatatableComponent,
     //Datatable2Component
   ],

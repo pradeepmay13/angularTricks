@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { LoginComponent } from './login/login.component';
+import { CustomFormComponent } from './custom-form/custom-form.component';
 
 const routes: Routes = [
 	{ path:'', redirectTo: 'home', pathMatch: 'full' },
 	{ path:'home', component: HomeComponent },
   { path:'login', component: LoginComponent },
+  { path:'customForm', component: CustomFormComponent },
   { path:'datatable', component: DatatableComponent },
   //{ path:'**', component: PageNotFound }
 ];
@@ -28,4 +30,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent]
+export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent, CustomFormComponent]
