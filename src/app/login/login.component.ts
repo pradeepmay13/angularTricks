@@ -14,6 +14,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 	userForm: FormGroup;
 	responseData : any;
+	userDetails:any;
+	isLoggedin:any = true;
 	constructor(private router: Router, private fb: FormBuilder, private loginService:LoginService, private toastr: ToastsManager, private _vcr: ViewContainerRef) 
 	{ 
 		this.toastr.setRootViewContainerRef(_vcr);
@@ -21,6 +23,9 @@ export class LoginComponent implements OnInit {
     	.subscribe( toast => {  
     		 this.toastr.dismissToast(toast); 
 	    });
+	    if(this.userDetails!=null && this.userDetails.token!=''){
+  			this.isLoggedin = false;
+  		}else{this.isLoggedin = true;}
 	}
 
 	ngOnInit() {
@@ -38,9 +43,10 @@ export class LoginComponent implements OnInit {
 				if(response.execution=="1"){
 					//redirection code
 					localStorage.setItem('userData', JSON.stringify(this.responseData));
+					this.isLoggedin = false;
 					this.router.navigate(['./home']);
 					this.toastr.success("Success", 'You are on right track.');
-					alert(localStorage.userData);
+					//alert(localStorage.userData);
 				}
 				else{
 					this.toastr.error("Error", 'Username or Password is wrong please try again!');

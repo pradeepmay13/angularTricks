@@ -1,10 +1,44 @@
 import { Component  } from '@angular/core';
+import { LoginService } from './login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[LoginService]
 })
 export class AppComponent {
-    title = 'app';    
+    title = 'app'; 
+    userDetails:any;
+    isLoggedin:any = true;
+    responseData : any;
+    constructor(private router:Router, private loginService:LoginService){
+    	const data = JSON.parse(localStorage.getItem('userData'));
+  		this.userDetails = data;
+  		//console.log(this.userDetails.token);
+  		if(this.userDetails!=null && this.userDetails.token!=''){
+  			this.isLoggedin = false;
+  		}else{this.isLoggedin = true;}
+    } 
+
+    onLogout(){
+		this.loginService.logout(this.userDetails.token)
+		.subscribe(
+			response=>{
+				this.responseData = response;
+				if(response.execution===true){
+					//redirection code
+					localStorage.clear();
+					this.isLoggedin = false;
+					this.router.navigate(['./login']);
+
+					//this.toastr.error("LogOut", 'You are on right track.');
+				}
+				else{
+					//this.toastr.error("Error", 'Username or Password is wrong please try again!');
+				}
+			}
+		)
+	}  
 }
