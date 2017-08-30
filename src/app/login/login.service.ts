@@ -24,4 +24,7 @@ export class LoginService {
 		.map((response: Response) => response.json())
       	.catch((error: any) => Observable.throw(error || {message: "Server Error"}));
 	}
+	headerStatus(token){
+		//this.
+	}
 }

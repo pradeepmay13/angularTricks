@@ -19,15 +19,14 @@ export class HomeComponent implements OnInit {
     	this.toastr.onClickToast()
     	.subscribe( toast => { 
     		alert('toaster clicked.');      
-    		 this.toastr.dismissToast(toast);    
-	        console.log(toast.data);
-	    });
-	    const data = JSON.parse(localStorage.getItem('userData'));
-  		this.userDetails = data;
-  		console.log(this.userDetails);
+    		 this.toastr.dismissToast(toast); 
+	    });	    
 
 	}
-
+	ngOnInit() {
+	  	const data = JSON.parse(localStorage.getItem('userData'));
+		this.userDetails = data;
+  	}
 	private showSuccess(){		
     	this.toastr.success("Success", 'You are on right track.');
 	}
@@ -90,7 +89,6 @@ export class HomeComponent implements OnInit {
 		    }
 		)
   	}
-  ngOnInit() {
-  }
+  	
 
 }

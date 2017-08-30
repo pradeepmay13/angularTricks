@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
 	userForm: FormGroup;
 	responseData : any;
 	userDetails:any;
-	isLoggedin:any = true;
+	isLoggedin:boolean=false;
+	appcomponentValue:string;
 	constructor(private router: Router, private fb: FormBuilder, private loginService:LoginService, private toastr: ToastsManager, private _vcr: ViewContainerRef) 
 	{ 
 		this.toastr.setRootViewContainerRef(_vcr);
@@ -23,18 +24,18 @@ export class LoginComponent implements OnInit {
     	.subscribe( toast => {  
     		 this.toastr.dismissToast(toast); 
 	    });
-	    if(this.userDetails!=null && this.userDetails.token!=''){
-  			this.isLoggedin = false;
-  		}else{this.isLoggedin = true;}
+	    
 	}
 
 	ngOnInit() {
 		this.userForm	=	this.fb.group({
 			username	:	["", Validators.required],
 			password	:	["", Validators.required]
-		})
+		});
+		
 	}
 	onSubmit(){
+		this.appcomponentValue="Test Data";
 		this.loginService.login(this.userForm.value)
 		.subscribe(
 			response=>{
@@ -43,10 +44,9 @@ export class LoginComponent implements OnInit {
 				if(response.execution=="1"){
 					//redirection code
 					localStorage.setItem('userData', JSON.stringify(this.responseData));
-					this.isLoggedin = false;
-					this.router.navigate(['./home']);
+					this.isLoggedin = true;					
 					this.toastr.success("Success", 'You are on right track.');
-					//alert(localStorage.userData);
+					this.router.navigate(['./home']);
 				}
 				else{
 					this.toastr.error("Error", 'Username or Password is wrong please try again!');

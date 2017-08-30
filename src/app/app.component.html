@@ -18,10 +18,10 @@
         <li ><a routerLink="customForm" routerLinkActive="active">CountryState</a></li>
         <li ><a routerLink="datatable" routerLinkActive="active">DataTable</a></li>
       </ul> 
-      <ul class="nav navbar-nav navbar-right">
-        <div *ngIf="isLoggedin; then login else logout"></div>
-        <ng-template #login><li><a routerLink="login" routerLinkActive="active">Login</a></li></ng-template>
-        <ng-template #logout><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>
+      <ul class="nav navbar-nav navbar-right">{{appcomponentValue}}
+        <div *ngIf="isLoggedin; then login else logout">{{isLoggedin}}</div>
+        <ng-template #logout><li><a routerLink="login" routerLinkActive="active">Login</a></li></ng-template>
+        <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>
         
         
         <li class="dropdown">
