@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { routingComponent } from './app-routing.module';
 import { DataTableModule } from 'angular-4-data-table';
 import { AuthGuard } from './auth-guard/auth.guard';
+import { HeaderComponent } from './header/header.component';
 //import { Datatable2Component } from './datatable2/datatable2.component';
 //import { ToastOptions } from 'ng2-toastr';
 
@@ -21,6 +22,7 @@ import { AuthGuard } from './auth-guard/auth.guard';
   declarations: [
     AppComponent,
     routingComponent,
+    HeaderComponent,
     //DatatableComponent,
     //Datatable2Component
   ],
