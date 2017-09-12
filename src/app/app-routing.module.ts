@@ -7,6 +7,7 @@ import { DatatableComponent } from './datatable/datatable.component';
 import { LoginComponent } from './login/login.component';
 import { CustomFormComponent } from './custom-form/custom-form.component';
 import { AuthGuard } from './auth-guard/auth.guard';
+import { AnimateDemoComponent } from './animate-demo/animate-demo.component';
 
 const routes: Routes = [
 	{ path:'', redirectTo: 'login', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path:'login', component: LoginComponent },
   { path:'customForm', component: CustomFormComponent },
   { path:'datatable', component: DatatableComponent },
+  { path:'animation', component: AnimateDemoComponent },
   //{ path:'**', component: PageNotFound }
 ];
 
@@ -31,4 +33,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent, CustomFormComponent]
+export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent, CustomFormComponent, AnimateDemoComponent]
