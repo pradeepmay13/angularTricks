@@ -8,14 +8,22 @@ import { LoginComponent } from './login/login.component';
 import { CustomFormComponent } from './custom-form/custom-form.component';
 import { AuthGuard } from './auth-guard/auth.guard';
 import { AnimateDemoComponent } from './animate-demo/animate-demo.component';
+import { InputOutputComponent } from './animate-demo/input-output/input-output.component';
 
 const routes: Routes = [
 	{ path:'', redirectTo: 'login', pathMatch: 'full' },
 	{ path:'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path:'login', component: LoginComponent },
   { path:'customForm', component: CustomFormComponent },
-  { path:'datatable', component: DatatableComponent },
-  { path:'animate', component: AnimateDemoComponent },
+  { path:'datatable', component: DatatableComponent },  
+  {
+    path: 'animate',
+    component: AnimateDemoComponent,
+    children: [
+      {path: 'input-output', component: InputOutputComponent},
+    ]
+  },
+  { path: '**', redirectTo: '/' }
   //{ path:'**', component: PageNotFound }
 ];
 
@@ -33,4 +41,4 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent, CustomFormComponent, AnimateDemoComponent]
+export const routingComponent=[HomeComponent, DatatableComponent, LoginComponent, CustomFormComponent, AnimateDemoComponent, InputOutputComponent]
