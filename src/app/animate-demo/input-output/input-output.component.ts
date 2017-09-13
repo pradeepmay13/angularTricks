@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-input-output',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-output.component.css']
 })
 export class InputOutputComponent implements OnInit {
+	@ViewChild('myinputtext') inputText;
+	//constructor() { setInterval(()=>{this.send2server()},2000)}
 
-  constructor() { }
+	ngOnInit() {
+	}
 
-  ngOnInit() {
-  }
+	send2server() {
+		let data=	this.inputText.nativeElement;
+		console.log(data.value);
+	}
 
 }
