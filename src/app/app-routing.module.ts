@@ -15,7 +15,7 @@ const routes: Routes = [
   { path:'login', component: LoginComponent },
   { path:'customForm', component: CustomFormComponent },
   { path:'datatable', component: DatatableComponent },
-  { path:'animation', component: AnimateDemoComponent },
+  { path:'animate', component: AnimateDemoComponent },
   //{ path:'**', component: PageNotFound }
 ];
 

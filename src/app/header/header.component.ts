@@ -7,7 +7,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers:[LoginService],
+  providers: [ LoginService ],
   
 })
 export class HeaderComponent implements OnInit {
