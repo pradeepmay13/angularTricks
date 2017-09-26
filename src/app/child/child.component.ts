@@ -7,13 +7,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-	@Input('myAwesomeValue') myBadValue ;
+	@Input('myAwesomeValue') myBadValue:any=101 ;
 	@Output() myOutputValue= new EventEmitter();
 	constructor() { }
 
   	ngOnInit() {
   		console.log(this.myBadValue);
-  		this.myOutputValue.emit('hello this mess from child to parent');
+  		this.myOutputValue.emit('hello this mess from child to parent=101');
   	}
 
 }

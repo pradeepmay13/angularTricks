@@ -2,13 +2,4 @@
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-<app-child 
-[myAwesomeValue]="2+5+3"
-(myOutputValue)="outputValuefunction($event)"
->
-	
-</app-child>
-
-
-
-
+<app-child [myAwesomeValue]="2+5+3" (myOutputValue)="outputValuefunction($event)"></app-child>

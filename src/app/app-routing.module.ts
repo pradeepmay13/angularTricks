@@ -20,9 +20,11 @@ const routes: Routes = [
   { path:'datatable', component: DatatableComponent },  
   {
     path: 'animate',
-    //component: AnimateDemoComponent,
+    //component: AnimateDemoComponent,    
     children: [
+      {path: '', redirectTo: 'input-output', pathMatch:'prefix'}, 
       {path: 'input-output', component: InputOutputComponent},
+      {path: 'test', component: DatatableComponent},  
     ]
   },
   { path: '**', redirectTo: '/' }
