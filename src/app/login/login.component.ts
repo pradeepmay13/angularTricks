@@ -44,7 +44,8 @@ export class LoginComponent implements OnInit {
 				if(response.execution=="1"){
 					//redirection code
 					localStorage.setItem('userData', JSON.stringify(this.responseData));
-					this.isLoggedin = true;					
+					this.isLoggedin = true;		
+					this.loginService.chkLogin();
 					this.toastr.success("Success", 'You are on right track.');
 					this.router.navigate(['./home']);
 				}
