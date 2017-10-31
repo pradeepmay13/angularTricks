@@ -14,23 +14,25 @@ export class HeaderComponent implements OnInit {
   userDetails: any;
   isLoggedin: any = true;
   responseData: any;
-
-  constructor(private router: Router, private loginService: LoginService){
+  //u_Data: any= [];
+  constructor(private router: Router, private loginService: LoginService) {
+    //this.u_Data = loginService.userDetails();
+    //console.log(this.u_Data);
   }
   ngOnInit() {
-    const data = JSON.parse(localStorage.getItem('userData'));
+    /*const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data;
-    if (this.userDetails != null && this.userDetails.token!= '') {
+    if (this.userDetails != null && this.userDetails.token !== '') {
       this.isLoggedin = true;
     }else {
       this.isLoggedin = false;
-    }
+    }*/
   }
 
   onLogout() {
     localStorage.clear();
     this.loginService.chkLogin();
     this.router.navigate(['./login']);
-
   }
+
 }

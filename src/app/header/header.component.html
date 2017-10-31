@@ -22,7 +22,7 @@
         <li ><a routerLink="animate/input-output" routerLinkActive="active">Child-View</a></li>
         <li ><a routerLink="childInput" routerLinkActive="active">InputChild</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">{{loginService.userData()}}
+      <ul class="nav navbar-nav navbar-right">
         <div *ngIf="!loginService.chkLogin(); then logout else login"></div>
         <ng-template #logout><li><a routerLink="login" routerLinkActive="active">Login</a></li></ng-template>
         <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>

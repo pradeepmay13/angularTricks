@@ -9,10 +9,10 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class LoginService {
   private loggedIn = false;
-  user_data: any;
+  userData: any;
+  userDetail: any;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
-  constructor(private http:Http) {
-    this.loggedIn = !localStorage.getItem('userData');
+  constructor(private http: Http) {
   }
   login(user) {
     let headers = new Headers();
@@ -22,7 +22,7 @@ export class LoginService {
     .catch((error: any) => Observable.throw(error || {message: "Server Error"}));
   }
   logout(token) {
-    let headers=new Headers();
+    let headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     return this.http.post('http://localhost/slim/public/logout', JSON.stringify(token), { headers: headers })
     .map((response: Response) => response.json())
@@ -32,8 +32,8 @@ export class LoginService {
     return this.loggedIn;
   }
   chkLogin() {
-    var userData = localStorage.getItem('userData');
-    if (userData)
+    this.userData = localStorage.getItem('userData');
+    if (this.userData)
       return this.loggedIn = true;
     else
       return this.loggedIn = false;
@@ -42,10 +42,16 @@ export class LoginService {
       localStorage.clear();
       this.chkLogin();
   }
-  userData() {
-    return this.user_data = [{
-      'name': 'pradeep',
-      'age': '25'
-    }]
+  userDetails() {
+    /*const data = JSON.parse(localStorage.getItem('userData'));
+    this.userDetail = data;
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    this.http.post('http://localhost/slim/public/user', JSON.stringify(this.userDetail.token), { headers: headers })
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error || {message: 'Server Error'}));*/
+    return [
+      {name: 'Pradeep', age: '28', gender: 'Male', email: 'pradeep@gmail.com'}
+    ]
   }
 }
