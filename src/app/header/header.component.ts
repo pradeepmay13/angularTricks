@@ -11,22 +11,14 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 })
 export class HeaderComponent implements OnInit {
-  userDetails: any;
+  userDetails: any={};
   isLoggedin: any = true;
   responseData: any;
-  //u_Data: any= [];
+  u_Data: any= [];
   constructor(private router: Router, private loginService: LoginService) {
-    //this.u_Data = loginService.userDetails();
-    //console.log(this.u_Data);
   }
   ngOnInit() {
-    /*const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetails = data;
-    if (this.userDetails != null && this.userDetails.token !== '') {
-      this.isLoggedin = true;
-    }else {
-      this.isLoggedin = false;
-    }*/
+    //this.loginService.userDetail();
   }
 
   onLogout() {

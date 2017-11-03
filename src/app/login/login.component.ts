@@ -41,7 +41,8 @@ export class LoginComponent implements OnInit {
         this.responseData = response;
         if (response.execution === '1' ) {
           localStorage.setItem('userData', JSON.stringify(this.responseData));
-          this.loginService.chkLogin();
+          //this.loginService.chkLogin();
+          //this.loginService.userDetail();
           this.toastr.success( 'Success', 'You are on right track.') ;
           this.router.navigate(['./home']);
         } else {

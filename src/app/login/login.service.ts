@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 export class LoginService {
   private loggedIn = false;
   userData: any;
-  userDetail: any;
+  userDetails: any={};
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   constructor(private http: Http) {
   }
@@ -42,16 +42,36 @@ export class LoginService {
       localStorage.clear();
       this.chkLogin();
   }
-  userDetails() {
-    /*const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetail = data;
+  getUser(token) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    this.http.post('http://localhost/slim/public/user', JSON.stringify(this.userDetail.token), { headers: headers })
+    return this.http.post('http://localhost/slim/public/user', JSON.stringify(token), { headers: headers })
       .map((response: Response) => response.json())
-      .catch((error: any) => Observable.throw(error || {message: 'Server Error'}));*/
-    return [
+      .catch((error: any) => Observable.throw(error || {message: 'Server Error'}));
+    //}
+    
+  }
+  userDetail(){
+    const data = JSON.parse(localStorage.getItem('userData'));
+    const token=data.token;
+    if(data!=null) {
+      this.getUser(token)
+      .subscribe(
+        response=>{
+          if (response.execution === true ) {          
+            this.userDetails=response.resultSet[0];
+            console.log(this.userDetails);
+          }
+          else{
+            //response.execution;
+          }
+        }
+      )
+    }
+
+
+    /*return [
       {name: 'Pradeep', age: '28', gender: 'Male', email: 'pradeep@gmail.com'}
-    ]
+    ]*/
   }
 }
