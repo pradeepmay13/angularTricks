@@ -22,24 +22,14 @@
         <li ><a routerLink="animate/input-output" routerLinkActive="active">Child-View</a></li>
         <li ><a routerLink="childInput" routerLinkActive="active">InputChild</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <div *ngIf="!loginService.chkLogin(); then logout else login"></div>
-        <ng-template #logout><li><a routerLink="login" routerLinkActive="active">Login</a></li></ng-template>
-        <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>
+      <span>{{authService.isUserLoggedIn}}</span> 
+      <ul class="nav navbar-nav navbar-right">{{appcomponentValue}}
+        <div>{{isLoggedin}}</div>
+        <li *ngIf="!authService.isUserLoggedIn"><a routerLink="login" routerLinkActive="active">Login</a></li>
+        <li  *ngIf="authService.isUserLoggedIn"><a (click)="onLogOut()">{{authService.getUserData()}}--Logout</a></li>
+
+        <li></li>
         
-
-
-        <!--<ul class="nav navbar-nav">
-          <li><a *ngIf="loggedIn" routerLink="my-log">My Log</a></li>
-          <li><a *ngIf="loggedIn">My Team</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a *ngIf="loggedIn" (click)="onLogout()">LogoutNew</a></li>
-          <li><a *ngIf="!loggedIn" routerLink="register">Sign Up</a></li>
-          <li><a *ngIf="!loggedIn" routerLink="login">Login</a></li>
-        </ul>-->
-
-
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle>Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -50,10 +40,11 @@
             <li><a >Separated link</a></li>
           </ul>
         </li>
-
-      </ul>
+        
+        
+      </ul>     
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-  <!--<div *ngIf="loginService.userDetail()"></div>-->
-  </nav>
+</nav>
+
 <!--The whole content below can be removed with the new code.-->
