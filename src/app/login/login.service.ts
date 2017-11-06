@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 export class LoginService {
   private loggedIn = false;
   userData: any;
-  userDetails: any={};
+  private userDetailData: any;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   constructor(private http: Http) {
   }
@@ -28,9 +28,9 @@ export class LoginService {
     .map((response: Response) => response.json())
     .catch((error: any) => Observable.throw(error || {message: "Server Error"}));
   }
-  isLoggedIn() {
-    return this.loggedIn;
-  }
+  //isLoggedIn() {
+  //  return this.loggedIn;
+  //}
   chkLogin() {
     this.userData = localStorage.getItem('userData');
     if (this.userData)
@@ -53,18 +53,20 @@ export class LoginService {
   }
   userDetail(){
     const data = JSON.parse(localStorage.getItem('userData'));
-    const token=data.token;
+    //return this.userDetailData=[
+    //  {name: 'Pradeep', age: '28', gender: 'Male', email: 'pradeep@gmail.com'}
+    //]
     if(data!=null) {
+      const token=data.token;
       this.getUser(token)
       .subscribe(
         response=>{
-          if (response.execution === true ) {          
-            this.userDetails=response.resultSet[0];
-            console.log(this.userDetails);
-          }
-          else{
-            //response.execution;
-          }
+          //if (response.execution === true ) {    
+            this.userDetailData=response.resultSet[0];  
+            console.log(this.userDetailData);
+          //}else{
+          //  this.userDetailData
+          //}
         }
       )
     }

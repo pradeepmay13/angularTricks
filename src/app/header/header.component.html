@@ -28,6 +28,7 @@
         <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>
         
 
+
         <!--<ul class="nav navbar-nav">
           <li><a *ngIf="loggedIn" routerLink="my-log">My Log</a></li>
           <li><a *ngIf="loggedIn">My Team</a></li>
@@ -53,7 +54,6 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
-
-<span>{{loginService.userDetails | json}}</span>
+  <!--<div *ngIf="loginService.userDetail()"></div>-->
+  </nav>
 <!--The whole content below can be removed with the new code.-->

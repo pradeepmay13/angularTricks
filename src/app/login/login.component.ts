@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
       username	:	['', Validators.required],
       password	:	['', Validators.required]
     });
-
   }
   onSubmit() {
     this.appcomponentValue = 'Test Data';
@@ -41,8 +40,8 @@ export class LoginComponent implements OnInit {
         this.responseData = response;
         if (response.execution === '1' ) {
           localStorage.setItem('userData', JSON.stringify(this.responseData));
+          this.loginService.userDetail();
           //this.loginService.chkLogin();
-          //this.loginService.userDetail();
           this.toastr.success( 'Success', 'You are on right track.') ;
           this.router.navigate(['./home']);
         } else {
