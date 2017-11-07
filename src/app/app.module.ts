@@ -14,10 +14,8 @@ import { DataTableModule } from 'angular-4-data-table';
 import { AuthGuard } from './auth-guard/auth.guard';
 import { LoginService } from './services/login.service';
 import { HeaderComponent } from './header/header.component';
-import { LoginService } from './login/login.service';
 import { AuthService } from './services/auth.service';
-import {CoolLocalStorage} from 'angular2-cool-storage';
-import {Login2Component} from './test/login2.component';
+//import {CoolLocalStorage} from 'angular2-cool-storage';
 //import { Datatable2Component } from './datatable2/datatable2.component';
 //import { ToastOptions } from 'ng2-toastr';
 
@@ -26,7 +24,6 @@ import {Login2Component} from './test/login2.component';
     AppComponent,
     routingComponent,
     HeaderComponent,
-    Login2Component,
     //DatatableComponent,
     //Datatable2Component
    

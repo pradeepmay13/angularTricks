@@ -11,14 +11,14 @@ import { AnimateDemoComponent } from './animate-demo/animate-demo.component';
 import { InputOutputComponent } from './animate-demo/input-output/input-output.component';
 import { ChildComponent } from './child/child.component';
 import { LoginxComponent } from './loginx/loginx.component';
-import {Login2Component} from './test/login2.component';
+//import {Login2Component} from './test/login2.component';
 
 const routes: Routes = [
 	{ path:'', redirectTo: 'login', pathMatch: 'full' },
 	{ path:'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path:'login', component: LoginComponent },
   { path:'loginx', component: LoginxComponent },
-  { path:'login2', component: Login2Component },
+  //{ path:'login2', component: Login2Component },
   { path:'customForm', component: CustomFormComponent },
   { path:'childInput', component: ChildComponent },
   { path:'datatable', component: DatatableComponent }, 
