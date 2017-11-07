@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
 import { Observer } from 'rxjs/Observer';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 //import {CoolLocalStorage} from 'angular2-cool-storage';
+import 'rxjs/add/operator/toPromise';
 import {Router} from '@angular/router';
 //import * as _ from 'underscore';
 declare var window: any;
@@ -72,5 +72,4 @@ export class AuthService {
     }
     
   }
-
 }
