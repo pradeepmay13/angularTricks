@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
         <div *ngIf="!loginService.chkLogin(); then logout else login"></div>
         <ng-template #logout><li><a routerLink="login" routerLinkActive="active">Login</a></li></ng-template>
-        <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">Logout</a></li></ng-template>
+        <ng-template #login><li><a href="javascript:void(null)"  (click)="onLogout()">{{loginService.userDetailData.username}} - Logout</a></li></ng-template>
         
 
 
@@ -56,6 +56,8 @@
   </div><!-- /.container-fluid -->
   <!--<div *ngIf="loginService.userDetail()"></div>-->
   {{authService.userDetailDataX|json}}
-  {{loginService.isUserLoggedIn | json}}
+  {{loginService.loggedIn}}
+
+  
   </nav>
 <!--The whole content below can be removed with the new code.-->

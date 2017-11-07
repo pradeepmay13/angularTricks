@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
   userForm: FormGroup;
@@ -26,7 +25,7 @@ export class LoginComponent implements OnInit {
       password	:	['', Validators.required]
     });
   }
-  onSubmit() {
+  frm_Submit() {
     this.appcomponentValue = 'Test Data';
     this.loginService.login(this.userForm.value)
     .subscribe(

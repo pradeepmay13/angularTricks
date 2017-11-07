@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 export class LoginService {
   loggedIn = false;
   userData: any;
-  userDetailData: any;
+  userDetailData: any={};
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   constructor(private http: Http) {
   }
@@ -53,9 +53,7 @@ export class LoginService {
   }
   userDetail(){
     const data = JSON.parse(localStorage.getItem('userData'));
-    //return this.userDetailData=[
-    //  {name: 'Pradeep', age: '28', gender: 'Male', email: 'pradeep@gmail.com'}
-    //]
+    
     if(data!=null) {
       const token=data.token;
       this.getUser(token)
@@ -63,6 +61,7 @@ export class LoginService {
         response=>{
           //if (response.execution === true ) {    
             this.userDetailData=response.resultSet[0];
+            console.log(this.userDetailData);
           //}else{
           //  this.userDetailData
           //}
