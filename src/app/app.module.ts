@@ -14,7 +14,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { routingComponent } from './app-routing.module';
 import { DataTableModule } from 'angular-4-data-table';
 import { AuthGuard } from './auth-guard/auth.guard';
+import { LoginService } from './services/login.service';
 import { HeaderComponent } from './header/header.component';
+import { AuthService } from './services/auth.service'
+
 //import { Datatable2Component } from './datatable2/datatable2.component';
 //import { ToastOptions } from 'ng2-toastr';
 
@@ -38,7 +41,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpModule
   ],
-  providers: [AuthGuard //{
+  providers: [AuthGuard, LoginService, AuthService //{
             //provide: ToastOptions, useClass: CustomOption
         //}
         ],

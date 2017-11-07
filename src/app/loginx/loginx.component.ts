@@ -1,23 +1,26 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { LoginService } from '../services/login.service'
+import { AuthService } from '../services/auth.service'
 import { Http, Response, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  selector: 'app-loginx',
+  templateUrl: './loginx.component.html',
+  styleUrls: ['./loginx.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginxComponent implements OnInit {
   userForm: FormGroup;
   responseData: any;
   employees: any;
   userDetails: any;
   appcomponentValue: string;
-  constructor (private router: Router, private fb: FormBuilder, private loginService: LoginService) {
-    
+  credentials = {
+		'userName':'',
+		'password':''
+	}
+  constructor (private router: Router, private fb: FormBuilder, private authService: AuthService) {
+
   }
 
   ngOnInit() {
@@ -26,20 +29,20 @@ export class LoginComponent implements OnInit {
       password	:	['', Validators.required]
     });
   }
-  onSubmit() {
+  test(data) {
     this.appcomponentValue = 'Test Data';
-    this.loginService.login(this.userForm.value)
+    this.authService.login(data)
     .subscribe(
       response => {
         this.responseData = response;
         if (response.execution === '1' ) {
           localStorage.setItem('userData', JSON.stringify(this.responseData));
-          this.loginService.userDetail();
-          //this.loginService.chkLogin();
+          this.authService.loadUserInfo();
+          this.authService.userDetail();
           this.router.navigate(['./home']);
         } else {
         }
       }
-    )
+    )    
   }
 }

@@ -8,9 +8,9 @@ import 'rxjs/add/observable/throw';
 
 @Injectable()
 export class LoginService {
-  private loggedIn = false;
+  loggedIn = false;
   userData: any;
-  private userDetailData: any;
+  userDetailData: any;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   constructor(private http: Http) {
   }
@@ -62,8 +62,7 @@ export class LoginService {
       .subscribe(
         response=>{
           //if (response.execution === true ) {    
-            this.userDetailData=response.resultSet[0];  
-            console.log(this.userDetailData);
+            this.userDetailData=response.resultSet[0];
           //}else{
           //  this.userDetailData
           //}

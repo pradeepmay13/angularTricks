@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login/login.service';
+import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -7,18 +8,12 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  providers: [ LoginService ],
 
 })
 export class HeaderComponent implements OnInit {
-  userDetails: any={};
-  isLoggedin: any = true;
-  responseData: any;
-  u_Data: any= [];
-  constructor(private router: Router, private loginService: LoginService) {
+  constructor(private router: Router, private loginService: LoginService, private authService: AuthService) {
   }
   ngOnInit() {
-    
   }
   ngOnChanges(){
   }
