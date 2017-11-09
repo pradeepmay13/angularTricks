@@ -42,7 +42,7 @@ export class AuthService {
 
   getUserData(){
   	let username
-  	 username = this.loggedInUser.userName;
+  	 username = this.loggedInUser.username;
   	 return username
   }
   getUser(token) {

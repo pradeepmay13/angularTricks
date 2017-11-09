@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from '../services/login.service'
 import { Http, Response, Headers } from '@angular/http';
@@ -16,6 +16,10 @@ export class LoginComponent implements OnInit {
   employees: any;
   userDetails: any;
   appcomponentValue: string;
+  credentials = {
+    'userName':'',
+    'password':''
+  }
   constructor (private router: Router, private fb: FormBuilder, private loginService: LoginService) {
     
   }
@@ -26,7 +30,7 @@ export class LoginComponent implements OnInit {
       password	:	['', Validators.required]
     });
   }
-  onSubmit() {
+  test() {
     this.appcomponentValue = 'Test Data';
     this.loginService.login(this.userForm.value)
     .subscribe(
